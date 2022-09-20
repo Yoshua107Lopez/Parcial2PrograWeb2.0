@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MedicamentoController;
+Use App\Http\Controllers\MiscelaneaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +19,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->middleware('auth');
+
+Route::get('/register', [RegisterController::class, 'create'])
+    ->middleware('guest')
+    ->name('register.index');
+
+Route::post('/register', [RegisterController::class, 'store'])
+    ->name('register.store');
+
+
+
+Route::get('/login', [LoginController::class, 'create'])
+    ->middleware('guest')
+    ->name('login.index');
+
+Route::post('/login', [LoginController::class, 'store'])
+    ->name('login.store');
+
+Route::get('/logout', [LoginController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('login.destroy');
+
+
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    ->name('admin.index');
+
+
+    Route::get('/medicamento', [MedicamentoController::class, 'index'])->name('medicamento.index'); 
+
+    Route::get('/miscelanea', [MiscelaneaController::class, 'index'])->name('miscelanea.index');
