@@ -20,13 +20,11 @@ class LoginController extends Controller
                 'message' => 'The email or password is incorrect, please try again',
             ]);
 
-        } else {
-
-            if(auth()->user()->role == 'admin') {
-                return redirect()->route('admin.index');
-            } else {
+        } 
+        else 
+        {
                 return redirect()->to('/');
-            }
+            
         }
     }
 
