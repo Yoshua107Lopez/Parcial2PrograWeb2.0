@@ -23,9 +23,8 @@
         </tr>
       </thead>
       <tbody>
+
         @foreach ($medicamentos as $row)
-            
-        
         <tr>
           <td class="py-3 px-6">{{ $row->id }}</td>
           <td class="p-3">{{ $row->name}} </td>
@@ -37,6 +36,7 @@
           <td class="p-3">{{ $row->existence}} </td>
           <td class="p-3 text-center">{{ $row->created_at}} </td>
           <td class="p-3 text-center">{{ $row->updated_at}} </td>
+
           <td class="p-3 flex justify-center">
 
             <form action="{{ route('medicamento.destroy', $row->id )}}" method="POST">
@@ -49,10 +49,12 @@
             
             <a href="{{ route('medicamento.edit', $row->id)}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
             <i class="fas fa-pen"></i></a>
+
           </td>
         </tr>
-        @endforeach
         
+        @endforeach
+     
       </tbody>
     </table>
 </div>

@@ -4,7 +4,7 @@
 
 @section('content')
     
-  <h1 class="text-5xl text-center pt-24">Welcome to my application</h1>
+  <h1 class="text-5xl text-center pt-24">Welcome to Farmacia los Angeles</h1>
 
   <body class="bg-gray-100 text-gray-800">
 
@@ -50,6 +50,8 @@
 
 <main class="p-16 flex justify-center">
 @yield('content')
+
+<h1 class="text-5xl text-center pt-24">Lo mejor en medicamentos, con precios al alcance de su bolsillo! :)</h1>
 </main>
 
 </body>
